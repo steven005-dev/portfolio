@@ -34,21 +34,13 @@ export function ExperienceSection() {
             <div>
               <h3 className="text-lg font-medium">Stage - ORA PLUS PLUS (2 mois)</h3>
               <p className="text-muted-foreground leading-relaxed mt-2">
-                Durant ce stage, j'ai découvert et approfondi plusieurs aspects clés du développement
-                informatique. J'ai appris à maîtriser l'architecture de développement <strong>MVC</strong>
-                (Modèle-Vue-Contrôleur) avec <strong>Spring Boot</strong>, ce qui m'a permis de comprendre
-                comment structurer une application de manière efficace et maintenable.
-
-                J'ai également acquis des notions importantes sur l'administration de bases de données,
-                notamment avec <strong>PostgreSQL (PgSQL)</strong>, ce qui m'a sensibilisé à la gestion des
-                données et à leur organisation pour un fonctionnement optimal des applications.
-
-                Ce qui m'a le plus marqué durant cette expérience, c'est l'importance du travail réalisé
-                en amont du développement, souvent appelé "le cœur du développement informatique" : la
-                modélisation. J'ai utilisé des outils comme <strong>MERISE</strong> et <strong>UML</strong>
-                pour concevoir et représenter clairement les structures et les processus avant même de
-                commencer le codage. Cette étape m'a montré combien une bonne modélisation facilite la
-                compréhension du projet, réduit les erreurs, et améliore la qualité globale du logiciel.
+                Durant ce stage, j’ai renforcé mes compétences en développement informatique, notamment en
+                architecture <strong>MVC</strong> avec <strong>Spring Boot</strong>, ce qui m’a permis de mieux
+                structurer des applications maintenables. J’ai également acquis des bases solides en
+                administration de bases de données avec <strong>PostgreSQL</strong>. Cette expérience m’a
+                surtout fait comprendre l’importance de la modélisation en amont du développement, à
+                travers l’utilisation de <strong>MERISE</strong> et <strong>UML</strong>, pour améliorer la
+                qualité et la fiabilité des applications.
               </p>
             </div>
           </motion.div>

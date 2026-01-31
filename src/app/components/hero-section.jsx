@@ -24,7 +24,7 @@ export function HeroSection() {
       });
     }
   };
-  return <section id="accueil" className="min-h-screen flex items-center justify-center px-4 lg:px-8 bg-gradient-to-b from-background to-accent/20">
+  return <section id="accueil" className="min-h-screen pt-16 md:pt-0 flex items-center justify-center px-4 lg:px-8 bg-gradient-to-b from-background to-accent/20">
       <div className="container mx-auto text-center">
         <motion.div initial={{
         opacity: 0,

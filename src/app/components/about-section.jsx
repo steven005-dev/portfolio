@@ -29,19 +29,12 @@ export function AboutSection() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <p className="text-lg text-muted-foreground leading-relaxed">
-               Étudiant en systèmes informatiques et génie logiciel, passionné par le développement de solutions innovantes et intelligentes.
-                Je me spécialise dans la conception et l’implémentation d’applications modernes, performantes et orientées résolution de problèmes.
+                Étudiant en systèmes informatiques et génie logiciel, je développe des applications modernes et
+                performantes orientées résolution de problèmes. Rigoureux, motivé et curieux, je valorise la
+                qualité du travail, l’apprentissage continu et les bonnes pratiques du génie logiciel. J’aime
+                relever des défis techniques, collaborer en équipe et créer des solutions fiables et évolutives
+                à impact réel.
               </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-              Mon approche repose sur la rigueur, la motivation et une forte soif d’apprentissage.
-              J’accorde une grande importance à la qualité du travail, 
-              tout en cherchant continuellement à développer de nouvelles compétences et à maîtriser les technologies émergentes du domaine.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Curieux et engagé, j’aime relever des défis techniques et travailler sur des projets concrets qui ont un impact réel.
-                 J’apprécie particulièrement le travail collaboratif, l’analyse de problèmes complexes et la transformation d’idées en solutions fiables et évolutives,
-                  tout en respectant les bonnes pratiques du génie logiciel.
-            </p>
             </div>
 
             <div className="relative">
@@ -52,7 +45,7 @@ export function AboutSection() {
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
                       <div className="w-2 h-2 rounded-full bg-chart-1" />
-                      <span className="text-muted-foreground">3 ans d'expérience</span>
+                      <span className="text-muted-foreground">3 ans de formation</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="w-2 h-2 rounded-full bg-chart-2" />

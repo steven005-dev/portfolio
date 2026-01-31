@@ -101,10 +101,6 @@ function ProjectCard({
               <Github className="w-4 h-4" />
               <span>GitHub</span>
             </a>
-            <a href={project.demoUrl} className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground hover:opacity-90 rounded-lg transition-opacity">
-              <ExternalLink className="w-4 h-4" />
-              <span>Démo</span>
-            </a>
           </div>
         </div>
       </div>
