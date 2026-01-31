@@ -48,7 +48,7 @@ const projects = [{
   id: 5,
   title: 'application de vente en ligne',
   description: 'Application de vente en ligne avec gestion de panier et possibilité de passer des commandes, développée avec HTML, CSS, Spring Boot et PostgreSQL.',
-  technologies: ['Vue.js', 'Node.js', 'MySQL', 'Mapbox'],
+  technologies: ['Spring Boot', 'HTML5', 'CSS3', 'PostgreSQL'],
   githubUrl: '#',
   demoUrl: '#',
   color: 'from-chart-5 to-chart-1',

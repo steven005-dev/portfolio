@@ -1,4 +1,5 @@
 import { Moon, Sun, Menu, X } from 'lucide-react';
+import stevelog from "../../asset/stevelog.png";
 import { useTheme } from '@/app/components/theme-context';
 import { useState } from 'react';
 export function Navbar() {
@@ -40,7 +41,7 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <a href="#accueil" className="text-xl font-semibold text-foreground hover:text-primary transition-colors">
-            Portfolio
+            <img src={stevelog} alt="stevelog" className="h-12 w-auto inline-block" />
           </a>
 
           {/* Desktop Navigation */}

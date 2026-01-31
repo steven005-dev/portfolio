@@ -20,21 +20,27 @@ export function ContactSection() {
     e.preventDefault();
     setError('');
     try {
-      const res = await fetch(`${API_BASE}/api/send`, {
+      // Build FormData for Netlify Forms
+      const fd = new FormData();
+      fd.append('form-name', 'contact');
+      fd.append('name', formData.name);
+      fd.append('email', formData.email);
+      fd.append('message', formData.message);
+
+      const res = await fetch('/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: fd
       });
-      const data = await res.json();
-      if (data.ok) {
+
+      if (res.ok) {
         setSubmitted(true);
         setFormData({ name: '', email: '', message: '' });
         setTimeout(() => setSubmitted(false), 3000);
       } else {
-        setError(data.error || 'Erreur lors de l\'envoi');
+        setError('Erreur lors de l\'envoi (Netlify)');
       }
     } catch (err) {
-      setError('Impossible de contacter le serveur');
+      setError('Impossible de contacter Netlify');
     }
   };
   const handleChange = e => {
