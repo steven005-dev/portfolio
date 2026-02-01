@@ -11,8 +11,8 @@ export function Footer() {
           <div className="flex items-center gap-4">
             <button onClick={() => {
               try {
-                const email = atob('c3RldmVuYW1hbmkxMzBAZ21haWwuY29t');
-                window.location.href = `mailto:${email}`;
+                const contactSection = document.getElementById('contact');
+                if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' });
               } catch (err) {
                 console.error(err);
               }

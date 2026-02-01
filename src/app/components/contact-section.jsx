@@ -113,8 +113,12 @@ export function ContactSection() {
                 <div className="ml-auto">
                   <button type="button" onClick={() => {
                     try {
-                      const email = atob('c3RldmVuYW1hbmkxMzBAZ21haWwuY29t'); // base64 of [redacted-email]
-                      window.location.href = `mailto:${email}`;
+                      const emailInput = document.getElementById('email');
+                      if (emailInput) emailInput.focus();
+                      else {
+                        const contactSection = document.getElementById('contact');
+                        if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' });
+                      }
                     } catch (err) {
                       console.error(err);
                     }
