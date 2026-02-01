@@ -21,23 +21,29 @@ export function ContactSection() {
     setError('');
     try {
       // Build FormData for Netlify Forms
-      const fd = new FormData();
-      fd.append('form-name', 'contact');
-      fd.append('name', formData.name);
-      fd.append('email', formData.email);
-      fd.append('message', formData.message);
-
-      const res = await fetch('/', {
+      // Envoi vers la Netlify Function sendMail
+      console.log('Envoi vers la function sendMail...', formData)
+      const res = await fetch('/.netlify/functions/sendMail', {
         method: 'POST',
-        body: fd
-      });
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      })
 
-      if (res.ok) {
+      console.log('Réponse fetch:', res.status)
+      let data = null
+      try {
+        data = await res.json()
+        console.log('Response JSON:', data)
+      } catch (err) {
+        console.warn('Aucune réponse JSON', err)
+      }
+
+      if (res.ok && data && data.success) {
         setSubmitted(true);
         setFormData({ name: '', email: '', message: '' });
         setTimeout(() => setSubmitted(false), 3000);
       } else {
-        setError('Erreur lors de l\'envoi (Netlify)');
+        setError("Erreur lors de l'envoi (send_failed)");
       }
     } catch (err) {
       setError('Impossible de contacter Netlify');
