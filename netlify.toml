@@ -1,0 +1,7 @@
+[build]
+  publish = "dist"
+  functions = "netlify/functions"
+
+[build.environment]
+  # Omettre du scan des secrets uniquement les chemins contenant des secrets légitimes (fonctions et le PDF contenant l'email)
+  SECRETS_SCAN_OMIT_PATHS = "netlify/functions,dist/assets/stevencv-B5d_JAKz.pdf"
