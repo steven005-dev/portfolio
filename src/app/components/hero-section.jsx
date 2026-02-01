@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
-import stevencv from "../../asset/stevencv.pdf";
+const cvUrl = 'https://drive.google.com/uc?export=download&id=19THqX6ZkeeQhVll-Onlw1eB_PWel3xQ3';
 export function HeroSection() {
   const scrollToProjects = () => {
     const element = document.querySelector('#projets');
@@ -62,7 +62,7 @@ export function HeroSection() {
             <button onClick={scrollToContact} className="px-8 py-3 bg-accent text-accent-foreground rounded-lg hover:bg-accent/80 transition-all hover:scale-105">
               Me contacter
             </button>
-            <a href={stevencv} download className="px-8 py-3 bg-secondary text-secondary-foreground rounded-lg hover:opacity-90 transition-all hover:scale-105 inline-flex items-center justify-center">
+            <a href={cvUrl} download className="px-8 py-3 bg-secondary text-secondary-foreground rounded-lg hover:opacity-90 transition-all hover:scale-105 inline-flex items-center justify-center">
               Télécharger mon CV
             </a>
           </div>
