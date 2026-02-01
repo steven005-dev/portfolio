@@ -20,7 +20,7 @@ app.post('/api/send', async (req, res) => {
   const smtpPort = process.env.SMTP_PORT;
   const smtpUser = process.env.SMTP_USER;
   const smtpPass = process.env.SMTP_PASS;
-  const recipient = process.env.RECIPIENT_EMAIL || '[redacted-email]';
+  const recipient = process.env.RECIPIENT_EMAIL;
 
   if (!smtpHost || !smtpPort || !smtpUser || !smtpPass) {
     console.error('SMTP credentials are not set in environment variables');

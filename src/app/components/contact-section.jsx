@@ -102,15 +102,27 @@ export function ContactSection() {
             </div>
 
             <div className="space-y-4">
-              <a href="mailto:[redacted-email]" className="flex items-center gap-4 p-4 bg-card border border-border rounded-xl hover:border-chart-1 transition-colors group">
+              <div className="flex items-center gap-4 p-4 bg-card border border-border rounded-xl group">
                 <div className="w-12 h-12 rounded-lg bg-accent flex items-center justify-center group-hover:bg-chart-1 transition-colors">
                   <Mail className="w-5 h-5 group-hover:text-primary-foreground transition-colors" />
                 </div>
                 <div>
                   <div className="font-medium">Email</div>
-                  <div className="text-sm text-muted-foreground">[redacted-email]</div>
+                  <div className="text-sm text-muted-foreground">steven [at] gmail [dot] com</div>
                 </div>
-              </a>
+                <div className="ml-auto">
+                  <button type="button" onClick={() => {
+                    try {
+                      const email = atob('c3RldmVuYW1hbmkxMzBAZ21haWwuY29t'); // base64 of [redacted-email]
+                      window.location.href = `mailto:${email}`;
+                    } catch (err) {
+                      console.error(err);
+                    }
+                  }} className="px-3 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-colors">
+                    Ouvrir
+                  </button>
+                </div>
+              </div>
 
               <a href="tel:0544552479" className="flex items-center gap-4 p-4 bg-card border border-border rounded-xl hover:border-chart-1 transition-colors group">
                 <div className="w-12 h-12 rounded-lg bg-accent flex items-center justify-center group-hover:bg-chart-1 transition-colors">
