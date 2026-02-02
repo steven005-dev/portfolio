@@ -14,7 +14,6 @@ export function ContactSection() {
     email: '',
     message: ''
   });
-  const [recipientEmail, setRecipientEmail] = useState('');
   const [fetchingRecipient, setFetchingRecipient] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
@@ -110,41 +109,38 @@ export function ContactSection() {
                 </div>
                 <div>
                   <div className="font-medium">Email</div>
-                  <div className="text-sm text-muted-foreground">steven [at] gmail [dot] com</div>
+                  <div className="text-sm text-muted-foreground">steven.amani@gmail.com</div>
                 </div>
                 <div className="ml-auto">
-                  <button type="button" onClick={async () => {
-                    try {
-                      if (!recipientEmail) {
+                    <button type="button" onClick={async () => {
+                      try {
                         setFetchingRecipient(true);
                         const res = await fetch('/.netlify/functions/getRecipient');
+                        setFetchingRecipient(false);
                         if (res.ok) {
                           const data = await res.json();
-                          setRecipientEmail(data.email || '');
+                          const email = data.email;
+                          if (email) {
+                            window.location.href = `mailto:${email}`;
+                            return;
+                          }
                         }
-                        setFetchingRecipient(false);
-                        return;
-                      }
-
-                      // if we have the email, copy to clipboard or open mail client
-                      try {
-                        await navigator.clipboard.writeText(recipientEmail);
-                        alert('Email copié dans le presse-papiers');
+                        // fallback: focus email input or scroll to contact
+                        const emailInput = document.getElementById('email');
+                        if (emailInput) emailInput.focus();
+                        else {
+                          const contactSection = document.getElementById('contact');
+                          if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' });
+                        }
                       } catch (err) {
-                        window.location.href = `mailto:${recipientEmail}`;
+                        console.error(err);
                       }
-                    } catch (err) {
-                      console.error(err);
-                    }
-                  }} className="px-3 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-colors">
-                    {fetchingRecipient ? 'Chargement...' : recipientEmail ? 'Copier / Ouvrir' : 'Afficher'}
-                  </button>
+                    }} className="px-3 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-colors">
+                      {fetchingRecipient ? 'Chargement...' : 'Contacter'}
+                    </button>
                 </div>
               </div>
-              {recipientEmail && <div className="mt-2 text-sm text-muted-foreground flex items-center gap-2">
-                <div>{recipientEmail}</div>
-                <button onClick={() => { navigator.clipboard.writeText(recipientEmail).then(()=>alert('Email copié')); }} className="px-2 py-1 bg-accent rounded">Copier</button>
-              </div>}
+              
 
               <a href="tel:0544552479" className="flex items-center gap-4 p-4 bg-card border border-border rounded-xl hover:border-chart-1 transition-colors group">
                 <div className="w-12 h-12 rounded-lg bg-accent flex items-center justify-center group-hover:bg-chart-1 transition-colors">
