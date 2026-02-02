@@ -8,8 +8,9 @@ export function ExperienceSection() {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
-    <section id="experience" className="py-20 lg:py-32 px-4 lg:px-8 bg-accent/10" ref={ref}>
-      <div className="container mx-auto max-w-5xl">
+    <section id="experience" className="relative overflow-hidden py-20 lg:py-32 px-4 lg:px-8 bg-accent/10" ref={ref}>
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-accent/30 dark:from-[#06060a] dark:via-[#09080f] dark:to-[#0b0710] pointer-events-none" aria-hidden />
+      <div className="container mx-auto max-w-5xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}

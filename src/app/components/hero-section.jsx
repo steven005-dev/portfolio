@@ -17,7 +17,7 @@ export function HeroSection() {
 
   return (
     <section id="accueil" className="relative min-h-screen flex items-center justify-center px-4 lg:px-8 overflow-hidden bg-background text-foreground">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-accent/30 dark:from-[#06060a] dark:via-[#09080f] dark:to-[#0b0710]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-accent/30 dark:from-[#06060a] dark:via-[#09080f] dark:to-[#0b0710] pointer-events-none" aria-hidden />
       <ParticlesBackground />
 
       <div className="container mx-auto text-center relative z-10 pt-12 md:pt-20">

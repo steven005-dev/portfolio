@@ -25,8 +25,9 @@ export function TimelineSection() {
     once: true,
     amount: 0.2
   });
-  return <section id="soft-skills" className="py-20 lg:py-32 px-4 lg:px-8 bg-accent/20" ref={ref}>
-      <div className="container mx-auto max-w-4xl">
+      return <section id="soft-skills" className="relative overflow-hidden py-20 lg:py-32 px-4 lg:px-8 bg-accent/20" ref={ref}>
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-accent/30 dark:from-[#06060a] dark:via-[#09080f] dark:to-[#0b0710] pointer-events-none" aria-hidden />
+        <div className="container mx-auto max-w-4xl relative z-10">
         <motion.div initial={{
         opacity: 0,
         y: 20

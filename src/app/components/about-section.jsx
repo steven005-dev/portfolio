@@ -9,8 +9,9 @@ export function AboutSection() {
     once: true,
     amount: 0.3
   });
-  return <section id="apropos" className="py-20 lg:py-32 px-4 lg:px-8" ref={ref}>
-      <div className="container mx-auto max-w-6xl">
+      return <section id="apropos" className="relative overflow-hidden py-20 lg:py-32 px-4 lg:px-8" ref={ref}>
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-accent/30 dark:from-[#06060a] dark:via-[#09080f] dark:to-[#0b0710] pointer-events-none" aria-hidden />
+        <div className="container mx-auto max-w-6xl relative z-10">
         <motion.div initial={{
         opacity: 0,
         y: 20
@@ -30,7 +31,7 @@ export function AboutSection() {
             <div className="w-36 h-1.5 rounded-full bg-gradient-to-r from-[#9b6bff] via-[#8b5cf6] to-[#f97316]" />
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-start">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Étudiant en systèmes informatiques et génie logiciel, je développe des applications modernes et
@@ -57,8 +58,8 @@ export function AboutSection() {
                     <Code className="w-6 h-6" />
                   </div>
                 </div>
-                <div className="text-3xl font-extrabold text-[#9b6bff]">3+</div>
-                <div className="text-sm text-muted-foreground mt-2">Ans d'expérience</div>
+                <div className="text-3xl font-extrabold text-[#9b6bff]">3</div>
+                <div className="text-sm text-muted-foreground mt-2">ans de formation</div>
               </div>
 
                 <div className="bg-card rounded-2xl p-6 border border-border shadow-sm text-center card-highlight transform transition-all duration-200 hover:-translate-y-1 hover:shadow-lg" style={{"--card-accent":"#8b5cf6","--card-accent-rgb":"139,92,246"}}>
@@ -67,7 +68,7 @@ export function AboutSection() {
                     <Rocket className="w-6 h-6" />
                   </div>
                 </div>
-                <div className="text-3xl font-extrabold text-[#8b5cf6]">15+</div>
+                <div className="text-3xl font-extrabold text-[#8b5cf6]">5</div>
                 <div className="text-sm text-muted-foreground mt-2">Projets réalisés</div>
               </div>
 
@@ -77,8 +78,8 @@ export function AboutSection() {
                     <Heart className="w-6 h-6" />
                   </div>
                 </div>
-                <div className="text-3xl font-extrabold text-[#f97316]">100%</div>
-                <div className="text-sm text-muted-foreground mt-2">Passion & engagement</div>
+                <div className="text-3xl font-extrabold text-[#f97316]">10+</div>
+                <div className="text-sm text-muted-foreground mt-2">tehnologies</div>
               </div>
 
                 <div className="bg-card rounded-2xl p-6 border border-border shadow-sm text-center card-highlight transform transition-all duration-200 hover:-translate-y-1 hover:shadow-lg" style={{"--card-accent":"#f59e0b","--card-accent-rgb":"245,158,11"}}>
@@ -87,8 +88,8 @@ export function AboutSection() {
                     <Zap className="w-6 h-6" />
                   </div>
                 </div>
-                <div className="text-3xl font-extrabold text-[#f59e0b]">24/7</div>
-                <div className="text-sm text-muted-foreground mt-2">Apprentissage continu</div>
+                <div className="text-3xl font-extrabold text-[#f59e0b]">Apprentissage</div>
+                <div className="text-sm text-muted-foreground mt-2">continu</div>
               </div>
             </div>
           </div>
