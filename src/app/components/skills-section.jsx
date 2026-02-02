@@ -73,22 +73,21 @@ export function SkillsSection() {
     SQL: databaseIcon
   };
   const progressMap = {
-    JavaScript: 90,
-    JSX: 85,
-    TypeScript: 85,
+    JavaScript: 70,
+    JSX: 60,
     Python: 75,
-    Java: 70,
-    HTML5: 95,
-    CSS3: 90,
-    SQL: 80,
-    React: 88,
-    Django: 72,
-    'Spring Boot': 70,
-    PostgreSQL: 78,
-    MySQL: 76,
-    SQLite: 74,
-    Git: 85,
-    Docker: 70,
+    Java: 85,
+    HTML5: 80,
+    CSS3: 60,
+    SQL: 70,
+    React: 60,
+    Django: 80,
+    'Spring Boot': 80,
+    PostgreSQL: 70,
+    MySQL: 65,
+    SQLite: 60,
+    Git: 70,
+    Docker: 50,
     AWS: 60
   };
   return <section id="competences" className="py-20 lg:py-32 px-4 lg:px-8" ref={ref}>
