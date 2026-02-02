@@ -72,6 +72,25 @@ export function SkillsSection() {
     'Bash/Shell': shellIcon,
     SQL: databaseIcon
   };
+  const progressMap = {
+    JavaScript: 90,
+    JSX: 85,
+    TypeScript: 85,
+    Python: 75,
+    Java: 70,
+    HTML5: 95,
+    CSS3: 90,
+    SQL: 80,
+    React: 88,
+    Django: 72,
+    'Spring Boot': 70,
+    PostgreSQL: 78,
+    MySQL: 76,
+    SQLite: 74,
+    Git: 85,
+    Docker: 70,
+    AWS: 60
+  };
   return <section id="competences" className="py-20 lg:py-32 px-4 lg:px-8" ref={ref}>
       <div className="container mx-auto max-w-6xl">
         <motion.div initial={{
@@ -86,9 +105,12 @@ export function SkillsSection() {
       }} transition={{
         duration: 0.6
       }} className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl mb-4 text-center font-extrabold">
             Compétences techniques
           </h2>
+          <div className="flex justify-center mb-12" aria-hidden>
+            <div className="w-36 h-1.5 rounded-full bg-gradient-to-r from-[#9b6bff] via-[#8b5cf6] to-[#f97316]" />
+          </div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Un aperçu des technologies et outils que je maîtrise pour créer
             des applications web performantes et scalables.
@@ -96,29 +118,55 @@ export function SkillsSection() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {skillCategories.map((category, categoryIndex) => <motion.div key={category.title} initial={{
-          opacity: 0,
-          y: 20
-        }} animate={isInView ? {
-          opacity: 1,
-          y: 0
-        } : {
-          opacity: 0,
-          y: 20
-        }} transition={{
-          duration: 0.6,
-          delay: categoryIndex * 0.1
-        }} className="bg-card border border-border rounded-2xl p-6">
-              <h3 className="text-xl mb-4">{category.title}</h3>
-              <div className="flex flex-wrap gap-3">
-                {category.skills.map(skill => {
-                  const icon = icons[skill];
-                  return <div key={skill} className="flex items-center gap-3 px-4 py-2 bg-accent text-accent-foreground rounded-lg hover:shadow-md transition-all duration-300 cursor-default">
-                    {icon ? <img src={icon} alt={`${skill} icon`} className="w-8 h-8 object-contain" /> : <span className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-chart-1 text-primary-foreground flex items-center justify-center text-xs font-semibold">{getAbbrev(skill)}</span>}
-                    <span className="text-sm">{skill}</span>
-                  </div>})}
+          {skillCategories.map((category, categoryIndex) => {
+            let accent = '#9b6bff';
+            let accentRgb = '155,107,255';
+            if (categoryIndex === 1) { accent = '#8b5cf6'; accentRgb = '139,92,246'; }
+            if (categoryIndex === 2) { accent = '#10b981'; accentRgb = '16,185,129'; }
+            if (categoryIndex === 3) { accent = '#f59e0b'; accentRgb = '245,158,11'; }
+            return (<motion.div key={category.title} initial={{
+            opacity: 0,
+            y: 20
+          }} animate={isInView ? {
+            opacity: 1,
+            y: 0
+          } : {
+            opacity: 0,
+            y: 20
+          }} transition={{
+            duration: 0.6,
+            delay: categoryIndex * 0.1
+          }} className="bg-card border border-border rounded-2xl p-6 card-highlight" style={{"--card-accent":accent,"--card-accent-rgb":accentRgb}}>
+              
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-md flex items-center justify-center bg-gradient-to-br from-[#9b6bff] to-[#8b5cf6] text-white">
+                  {/* category icon placeholder */}
+                  <span className="text-lg">💻</span>
+                </div>
+                <h3 className="text-xl font-semibold">{category.title}</h3>
               </div>
-            </motion.div>)}
+
+              <div className="space-y-4">
+                {category.skills.map((skill, i) => {
+                  const icon = icons[skill];
+                  const pct = progressMap[skill] ?? Math.max(50, 80 - i * 5);
+                  return <div key={skill} className="flex items-center gap-4">
+                    <div className="w-10 h-10 flex-shrink-0 rounded-md bg-card/30 flex items-center justify-center">
+                      {icon ? <img src={icon} alt={`${skill} icon`} className="w-6 h-6 object-contain" /> : <span className="text-sm font-semibold">{getAbbrev(skill)}</span>}
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex justify-between items-center mb-1">
+                        <div className="text-sm font-medium">{skill}</div>
+                        <div className="text-sm text-muted-foreground">{pct}%</div>
+                      </div>
+                      <div className="w-full h-3 rounded-full bg-card/60 overflow-hidden">
+                        <div className="h-3 rounded-full bg-gradient-to-r from-[#9b6bff] to-[#f97316]" style={{width: `${pct}%`}} />
+                      </div>
+                    </div>
+                  </div>;
+                })}
+              </div>
+            </motion.div>); })}
         </div>
       </div>
     </section>;

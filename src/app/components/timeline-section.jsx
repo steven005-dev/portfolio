@@ -39,49 +39,58 @@ export function TimelineSection() {
       }} transition={{
         duration: 0.6
       }} className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl mb-6">
-            Soft skills
+          <h2 className="text-4xl md:text-5xl lg:text-6xl mb-4 text-center font-extrabold">
+            Soft Skills
           </h2>
+          <div className="flex justify-center mb-12" aria-hidden>
+            <div className="w-36 h-1.5 rounded-full bg-gradient-to-r from-[#9b6bff] via-[#8b5cf6] to-[#f97316]" />
+          </div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Compétences humaines et comportementales qui me permettent de travailler efficacement
             en équipe et d'apporter de la valeur dans des projets variés.
           </p>
         </motion.div>
 
-        <div className="relative">
-          {/* Vertical line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border md:left-1/2" />
-
-          {timelineItems.map((item, index) => <motion.div key={index} initial={{
-          opacity: 0,
-          x: index % 2 === 0 ? -20 : 20
-        }} animate={isInView ? {
-          opacity: 1,
-          x: 0
-        } : {
-          opacity: 0,
-          x: index % 2 === 0 ? -20 : 20
-        }} transition={{
-          duration: 0.6,
-          delay: index * 0.2
-        }} className={`relative mb-12 md:mb-16 ${index % 2 === 0 ? 'md:pr-1/2 md:text-right' : 'md:pl-1/2 md:ml-auto'}`}>
-              <div className="flex items-start gap-4 md:gap-8">
-                {/* Icon - left on mobile, alternating on desktop */}
-                <div className={`flex-shrink-0 ${index % 2 === 0 ? 'md:ml-auto md:order-2' : ''}`}>
-                  <div className="w-16 h-16 rounded-full bg-chart-1 text-primary-foreground flex items-center justify-center relative z-10">
+        <div className="grid md:grid-cols-3 gap-6">
+          {(() => {
+            const colorBg = ['from-chart-1 to-chart-2', 'from-[#f59e0b] to-[#f97316]', 'from-chart-2 to-chart-3', 'from-chart-3 to-chart-4'];
+            const titleColor = ['text-[#9b6bff]', 'text-[#f59e0b]', 'text-[#8b5cf6]', 'text-[#f97316]'];
+            return timelineItems.map((item, index) => {
+              const col = index % colorBg.length;
+              const accents = [
+                {hex: '#6366f1', rgb: '99,102,241'},
+                {hex: '#f59e0b', rgb: '245,158,11'},
+                {hex: '#8b5cf6', rgb: '139,92,246'},
+                {hex: '#06b6d4', rgb: '6,182,212'}
+              ];
+              const accent = accents[col];
+              return <motion.div key={index} initial={{
+                opacity: 0,
+                y: 12
+              }} animate={isInView ? {
+                opacity: 1,
+                y: 0
+              } : {
+                opacity: 0,
+                y: 12
+              }} transition={{
+                duration: 0.6,
+                delay: index * 0.12
+              }} className="group bg-card border border-border rounded-2xl p-6 hover:shadow-lg transition-all card-highlight" style={{"--card-accent": accent.hex, "--card-accent-rgb": accent.rgb}}>
+                <div className="flex items-start gap-4">
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center border border-border/40 bg-gradient-to-br ${colorBg[col]} text-white`}> 
                     {item.icon}
                   </div>
+                  <div className="flex-1">
+                    <h3 className={`text-xl font-semibold mb-2 ${titleColor[col]}`}>{item.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
-
-                {/* Content */}
-                <div className={`flex-1 bg-card border border-border rounded-2xl p-6 ${index % 2 === 0 ? 'md:order-1' : ''}`}>
-                  <h3 className="text-xl mb-2">{item.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-              </div>
-            </motion.div>)}
+              </motion.div>;
+            });
+          })()}
         </div>
 
         <motion.div initial={{
@@ -96,13 +105,17 @@ export function TimelineSection() {
       }} transition={{
         duration: 0.6,
         delay: 0.8
-      }} className="mt-16 text-center bg-gradient-to-r from-chart-1 to-chart-2 text-primary-foreground rounded-2xl p-8">
-          <h3 className="text-2xl mb-3">Toujours en apprentissage</h3>
-          <p className="text-primary-foreground/90 max-w-2xl mx-auto">
-            Le développement web évolue constamment. Je consacre du temps chaque semaine
-            à apprendre de nouvelles technologies, explorer de nouveaux paradigmes
-            et améliorer mes compétences existantes.
-          </p>
+      }} className="mt-16">
+          <div className="relative rounded-2xl p-1 bg-gradient-to-r from-[#9b6bff] via-[#8b5cf6] to-[#f59e0b] shadow-[0_8px_30px_rgba(155,107,255,0.06),0_8px_30px_rgba(249,115,22,0.06)]">
+            <div className="bg-card rounded-2xl p-8 md:p-12 text-center">
+              <div className="text-4xl mb-4">🚀</div>
+              <h3 className="text-2xl md:text-3xl font-semibold text-[#e6b9cf] mb-4">En constante évolution</h3>
+              <p className="text-muted-foreground max-w-3xl mx-auto">
+                Le développement évolue sans cesse. Je m'engage à explorer de nouvelles technologies et à
+                perfectionner mes compétences chaque jour.
+              </p>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>;

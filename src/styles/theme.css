@@ -178,4 +178,20 @@
     font-weight: var(--font-weight-normal);
     line-height: 1.5;
   }
+
+  /* Card highlight: use --card-accent (hex) and --card-accent-rgb (r,g,b) */
+  .card-highlight {
+    transition: box-shadow 200ms ease, border-color 200ms ease, transform 200ms ease;
+  }
+  .card-highlight:hover, .card-highlight:focus-within, .card-highlight:active {
+    border-color: var(--card-accent, var(--color-chart-1));
+    box-shadow: 0 8px 30px rgba(var(--card-accent-rgb, 99,102,241), 0.12), 0 0 0 4px rgba(var(--card-accent-rgb, 99,102,241), 0.06);
+    transform: translateY(-2px);
+  }
+  /* Support focus-visible for keyboard and :active for touch taps */
+  .card-highlight:focus-visible {
+    border-color: var(--card-accent, var(--color-chart-1));
+    box-shadow: 0 8px 30px rgba(var(--card-accent-rgb, 99,102,241), 0.14), 0 0 0 6px rgba(var(--card-accent-rgb, 99,102,241), 0.08);
+    transform: translateY(-2px);
+  }
 }

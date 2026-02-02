@@ -75,17 +75,16 @@ function ProjectCard({
   }} transition={{
     duration: 0.6,
     delay: index * 0.1
-  }} className="group relative bg-card border border-border rounded-2xl overflow-hidden hover:border-chart-1 transition-all duration-300">
-      <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
+  }} className="group relative bg-card border border-border rounded-2xl overflow-hidden transition-all duration-300">
+      <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-0 transition-opacity duration-300`} />
       
       <div className="relative z-10">
         <div className="relative overflow-hidden aspect-video">
-          <ImageWithFallback src={project.imageUrl} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+          <ImageWithFallback src={project.imageUrl} alt={project.title} className="w-full h-full object-cover transition-transform duration-300" />
           <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60" />
         </div>
 
-        <div className="p-6">
-          <h3 className="text-2xl mb-3">{project.title}</h3>
+        <div className="p-6 group relative bg-card border border-border rounded-2xl overflow-hidden transition-all duration-300">
           <p className="text-muted-foreground mb-6 leading-relaxed">
             {project.description}
           </p>
@@ -126,9 +125,12 @@ export function ProjectsSection() {
       }} transition={{
         duration: 0.6
       }} className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl mb-4 text-center font-extrabold">
             Projets
           </h2>
+          <div className="flex justify-center mb-12" aria-hidden>
+            <div className="w-36 h-1.5 rounded-full bg-gradient-to-r from-[#9b6bff] via-[#8b5cf6] to-[#f97316]" />
+          </div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Découvrez une sélection de mes projets récents, démontrant mes compétences
             en développement full-stack et design d'interfaces utilisateur.
